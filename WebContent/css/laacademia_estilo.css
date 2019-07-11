@@ -1,0 +1,188 @@
+*
+{
+	font-family: "Arial";
+}
+
+body
+{
+	background-color: #082a4c;
+	text-align: center;
+}
+
+body img
+{
+	border-left: 10px solid #0a3763;
+	border-right: 10px solid #0a3763;
+	border-top: 2px solid #0a3763;
+	border-bottom: 4px solid #0a3763;
+	border-radius: 30px;
+}
+nav a
+{
+	color: #d4af37;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+nav a:hover
+{
+	text-decoration: underline;	
+}
+
+h1
+{
+	color: #201b01;
+	background-color: #0f5091;
+	text-transform: uppercase;
+	font-size: 20px;
+	padding: 5px;
+	width: 400px;
+	border-left: 10px solid #d4af37;
+	border-right: 10px solid #d4af37;
+	border-top: 2px solid #d4af37;
+	border-bottom: 2px solid #d4af37;
+	border-radius: 30px;
+}
+
+h1,
+div#mensagensInfo,
+fieldset,
+table
+{
+	margin-left:auto;
+	margin-right: auto;
+}
+
+div#mensagensInfo 
+{
+	background-color: #63630a;
+	width: 400px;
+	border-radius: 6px;
+	padding: 10px;
+	color: #610a0a;
+	
+}
+
+fieldset
+{
+	background-color: #ffffff;
+	width: 400px;
+	text-align: left;
+	border-radius: 6px;
+	border: 0px;
+}
+
+legend
+{
+	background-color: #f9f9f9;
+	border-radius: 24px;
+	padding-top: 4px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	font-weight: bold;
+}
+
+legend,
+label
+{
+	color: #514503;
+}
+
+input,
+select
+{
+	background-color: #ffffff;
+	border: 1px solid #514503;
+	margin-bottom: 6px; 
+}
+
+input[type=date],
+select
+{
+	color: #514503; 
+}		
+
+input[type=text]#nome,
+input[type=text]#rua,
+input[type=text]#complemento,
+input[type=email]
+{
+	width: 94%;
+}
+
+input[type=tel]#telefoneCelularDDD,
+input[type=tel]#telefoneFixoDDD
+{
+	width: 30px;
+}
+
+input[type=text]#numero,
+input[type=text]#matricula,
+input[type=tel]#telefoneCelularNumero,
+input[type=tel]#telefoneFixoNumero,
+input[type=text]#cep,
+input[type=text]#rg
+{
+	width: 90px;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset]
+{
+	background-color: #0e437a;
+	border-bottom: 4px solid #010407;
+	border-top: 2px solid #010407;
+	border-left: 2px solid #010407;
+	border-right: 2px solid #010407;
+	border-radius: 6px;
+	color: #d4af37;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 4px 6px;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover
+{
+	background-color: #1676d6;
+	border-bottom: 4px solid #0e437a;
+	border-top: 2px solid #0e437a;
+	border-left: 2px solid #0e437a;
+	border-right: 2px solid #0e437a;
+}
+
+table
+{
+	background-color: #f9f9f9;
+	font-size: 14px;
+	border-spacing: 1px;
+	border-collapse: separate;
+}
+
+th
+{
+	background-color: #0f5091;
+	color: #201b01;
+	text-transform: uppercase;
+	padding: 4px;
+}
+
+tr:nth-child(even)
+{
+	background-color: #d7e9fb;
+}
+
+tr:nth-child(odd)
+{
+	background-color: #ffffff;
+}
+
+td
+{
+	padding: 6px;
+}

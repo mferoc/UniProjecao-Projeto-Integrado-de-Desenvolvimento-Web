@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	lang="pt-br">
+
+	<head jsf:id="head">
+		<meta charset="ISO-8859-1" />
+		<title>LaAcademia</title>
+		<link rel="stylesheet" type="text/css" href="css/laacademia_estilo.css" />
+		<script src="javascript/utils.js"></script>
+	</head>
+	<body>
+		<!--Cabeçalho - Inicio  -->
+		<header>
+			<img src="imagens/Laacademia_logo.png" />
+			<nav>
+				<div>
+					<a jsf:outcome="dadosAluno">Novo Aluno</a><br />
+					<a jsf:outcome="pesquisaAluno?clear=true">Pesquisa de Aluno</a><br />
+					<a jsf:outcome="controleDeAcesso">Controle de Acesso</a><br />
+					<a jsf:outcome="relatoriosDeEntradaSaida">Relatórios de Entradas e Saídas</a><br />
+					<a jsf:outcome="relatoriosDeSituacoes?clear=true">Relatórios de Situações</a><br />
+				</div>
+			</nav>
+		</header>
+		
+		<h1>#{title}</h1>
+		
+		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
+			<div id="mensagensInfo">
+				<h:messages />
+			</div>
+		</h:panelGroup>
+		
+			<br />
+		<!--Cabeçalho - Fim  -->
+		
+		<ui:insert name="conteudo" id="conteudo" class="conteudo" />
+	</body>
+</html>

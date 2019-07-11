@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br /">
+
+<ui:composition template="layout.xhtml">
+	<ui:param name="title" value="Pesquisa de Aluno"></ui:param>
+	<ui:define name="conteudo">
+		
+		<f:metadata>
+			<f:viewAction action="#{pesquisaAlunoBean.checagem()}" />
+		</f:metadata>
+
+		<form jsf:id="form">
+			<fieldset>
+				<legend>Parâmetros da Pesquisa</legend>
+				<label for="matricula">Matrícula</label><br /> 
+				<input type="text" name="matricula" id="matricula" jsf:label="Matrícula" jsf:value="#{pesquisaAlunoBean.matricula}" size="9" maxlength="8" onKeyPress='return somenteNumeros(event)' placeholder="Só números" /><br />
+				<label for="nome">Nome</label><br /> 
+				<input type="text" name="nome" id="nome" jsf:label="Nome" jsf:value="#{pesquisaAlunoBean.nome}" maxlength="128" >
+					<f:validateLength minimum="0" maximum="128"></f:validateLength>
+				</input><br /> 
+				<label for="rg">RG</label><br /> 
+				<input type="text" name="rg" id="rg" jsf:label="RG" jsf:value="#{pesquisaAlunoBean.rg}" maxlength="10" onKeyPress='return somenteNumeros(event)' placeholder="Só números" >
+					<f:validateLongRange minimum="100000" maximum="9999999999" />
+				</input>
+				</fieldset>
+	
+				<br />
+				<input type="submit" value="Pesquisar" jsf:action="#{pesquisaAlunoBean.pesquisar()}" /> 
+				<input type="reset" value="Limpar" />
+	
+			<br /><br />
+			
+			<h:panelGroup rendered="#{not empty pesquisaAlunoBean.alunos}">
+				<table>
+					<tr>
+						<th>Matrícula</th>
+						<th>Nome</th>
+						<th>RG</th>
+						<th>E-mail</th>
+						<th>Situação</th>
+						<th>Ações</th>
+					</tr>
+					<ui:repeat var="a" value="#{pesquisaAlunoBean.alunos}">
+					<tr>
+						<td>#{a.matricula}</td>
+						<td>#{a.nome}</td>
+						<td>#{a.rg}</td>
+						<td>#{a.email}</td>
+						<td>#{a.situacao}</td>
+						<td>
+							<input type="button" value="Editar" jsf:outcome="dadosAluno?matricula=#{a.matricula}" />&#160; 
+							<input type="submit" value="Excluir"  onclick="return confirm('Deseja excluir o aluno #{a.matricula}?')" jsf:action="#{pesquisaAlunoBean.excluir(a.matricula)}" />
+						</td>
+					</tr>
+					</ui:repeat>
+				</table>
+			</h:panelGroup>
+	   		</form>
+			</ui:define>
+	</ui:composition>
+</html>		

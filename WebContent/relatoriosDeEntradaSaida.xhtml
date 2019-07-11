@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br / /">
+
+	<ui:composition template="layout.xhtml">
+		<ui:param name="title" value="Relatórios de Entradas e Saídas"></ui:param>
+		<ui:define name="conteudo">
+	
+			<form jsf:id="form">
+				<fieldset>			
+					<legend>Parâmetros de Entradas e Saídas</legend>	
+					<label for="matricula">Matrícula</label><br />
+					<input type="text" jsf:value="#{relatorioEntradaSaidaBean.matricula}" jsf:label="Matrícula" id="matricula" maxlength="8" onKeyPress='return somenteNumeros(event)' placeholder="Só números" >
+					</input><br />
+					<label for="dataInicial">Data Inicial</label><br />
+					<input type="date" jsf:value="#{relatorioEntradaSaidaBean.dataInicial}" id="dataInicial" >
+						<f:convertDateTime type="localDate" pattern="yyyy-MM-dd"></f:convertDateTime>
+					</input><br />
+					<label for="dataFinal">Data Final</label><br />
+					<input type="date" jsf:value="#{relatorioEntradaSaidaBean.dataFinal}" id="dataFinal" >
+						<f:convertDateTime type="localDate" pattern="yyyy-MM-dd"></f:convertDateTime>
+					</input>	
+				</fieldset>
+				
+				<br />
+	
+				<input type="submit" value="Gerar relatório" jsf:action="#{relatorioEntradaSaidaBean.gerarRelatorio}" />
+				<input type="reset" value="Limpar" />
+			
+			<br />
+			
+				<h:panelGroup rendered="#{not empty relatorioEntradaSaidaBean.acessos}">
+					<table>
+						<tr>
+							<th>Matrícula</th>
+							<th>Nome</th>
+							<th>Entrada</th>
+							<th>Saída</th>
+							
+						</tr>
+						<ui:repeat var="a" value="#{relatorioEntradaSaidaBean.acessos}">
+							<tr>
+								<td>#{a.aluno.matricula}</td>
+								<td>#{a.aluno.nome}</td>
+								<td>
+									<h:outputText value="#{a.entrada}">
+										<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm:ss"></f:convertDateTime>
+									</h:outputText>
+								</td>
+								<td>
+									<h:outputText value="#{a.saida}">
+										<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm:ss"></f:convertDateTime>
+									</h:outputText>
+								</td>
+							</tr>
+						</ui:repeat>
+					</table>
+				</h:panelGroup>
+			</form>
+		</ui:define>
+	</ui:composition>
+</html>		

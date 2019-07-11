@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br / /">
+
+	<ui:composition template="layout.xhtml">
+		<ui:param name="title" value="Controle de Acesso"></ui:param>
+		<ui:define name="conteudo">
+		
+			<form jsf:id="form">
+				<fieldset>			
+					<legend>Parâmetros de Acesso</legend>	
+					<label for="matricula">Matrícula</label><br />
+					<input type="text" jsf:value="#{controleAcessoBean.matricula}" id="matricula" jsf:label="Matrícula" maxlength="8" size="9" onKeyPress='return somenteNumeros(event)' placeholder="Só números" /><br />
+					<label for="rg">RG</label><br />
+					<input type="text" jsf:value="#{controleAcessoBean.rg}" id="rg" jsf:label="RG" maxlength="10" onKeyPress='return somenteNumeros(event)' placeholder="Só números" />
+					
+				</fieldset>
+			
+				<br />
+
+				<input type="submit" value="Registrar acesso" jsf:action="#{controleAcessoBean.registrarAcesso()}"/>
+				<input type="reset" value="Limpar" />
+			</form>
+		</ui:define>
+	</ui:composition>
+</html>		

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br / /">
+
+	<ui:composition template="layout.xhtml">
+		<ui:param name="title" value="Relatórios de Situações"></ui:param>
+		<ui:define name="conteudo">
+			
+			<f:metadata>
+				<f:viewAction action="#{relatorioSituacoesBean.checagem()}" />
+			</f:metadata>
+		
+			<form jsf:id="form">
+			
+				<fieldset>			
+					<legend>Parâmetros da Pesquisa</legend>	
+					<label for="situacao">Situação</label><br />
+					<select jsf:value="#{relatorioSituacoesBean.situacao}" id="situacao" size="0">
+						<f:selectItem itemLabel="Selecione a situação" itemValue=""></f:selectItem>
+						<f:selectItems value="#{dataBean.situacoes}"></f:selectItems>
+					</select><br />
+				</fieldset>
+			
+				<br />
+
+				<input type="submit" value="Gerar relatório" jsf:action="#{relatorioSituacoesBean.gerarRelatorio()}" />
+		
+				<br />
+			
+				<h:panelGroup rendered="#{not empty relatorioSituacoesBean.alunos}">
+					<table>
+						<tr>
+							<th>Matrícula</th>
+							<th>Nome</th>
+							<th>Situação</th>
+							<th>E-mail</th>
+							<th>Celular</th>
+							<th>Fixo</th>
+							<th>Ações</th>
+						</tr>
+						<ui:repeat var="a" value="#{relatorioSituacoesBean.alunos}">
+							<tr>
+								<td>#{a.matricula}</td>
+								<td>#{a.nome}</td>
+								<td>#{a.situacao}</td>
+								<td>#{a.email}</td>
+								<td>#{dataBean.formatTelefone(a.telefone.dddCelular, a.telefone.numeroCelular)}</td>
+								<td>#{dataBean.formatTelefone(a.telefone.dddFixo, a.telefone.numeroFixo)}</td>
+								<td>
+									<input type="button" value="Editar" jsf:outcome="dadosAluno?matricula=#{a.matricula}" />				
+								</td>
+							</tr>
+						</ui:repeat>
+					</table>
+				</h:panelGroup>
+			</form>
+		
+		</ui:define>
+	</ui:composition>
+</html>		
