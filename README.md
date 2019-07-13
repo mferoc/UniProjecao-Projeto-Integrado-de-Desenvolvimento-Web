@@ -11,7 +11,7 @@ ________________________________________________________________________________
 Telas do sistema: / EN: Screenshots of the system views:
 
 01 - Tela de Boas-Vindas: / Welcome page:
-![Alt Text](https://github.com/mferoc/UniProjecao-Projeto-Integrado-de-Desenvolvimento-Web/blob/master/documentation/screenshots/Screenshot_000.png)
+![](https://github.com/mferoc/UniProjecao-Projeto-Integrado-de-Desenvolvimento-Web/blob/master/documentation/screenshots/Screenshot_000.png)
 
 02 - Tela de cadastro: / Register page:
 
