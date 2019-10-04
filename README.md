@@ -8,7 +8,7 @@ O objetivo do projeto foi desenvolver um sistema web para gerir o cadastramento 
 
 **EN:** The goal of this project was to develop a web system to manage the enrollment of students in a gym. Using technologies how JSF, MySql database and JPA for connection and access to databse, Wildfly server and Java programming language. The system was developed with the concepts of MVC (Model - View - Controller) and DDD (Drive Domain Design) architecture. For detailed information about the system, refer to the project document in the "documentation" folder.
 _______________________________________________________________________________________________________________________________
-Telas do sistema: **EN:** Screenshots of the system views: 
+Telas do sistema: **EN:** Screenshots of the system screens: 
 
 01 - Tela de Boas-Vindas: / Welcome page: 
 
